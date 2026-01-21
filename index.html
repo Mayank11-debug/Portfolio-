@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank Kumar Chelak | BSc IT Student</title>
+  <meta name="description" content="Portfolio of Mayank Kumar Chelak — BSc IT student with skills in C/C++, HTML/CSS, DBMS basics, Linux/Windows." />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1620;
+      --text:#e6edf3;
+      --muted:#9fb0c0;
+      --accent:#5eead4;
+      --line:#1f2a37;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 500px at 20% -10%, rgba(94,234,212,.12), transparent 60%),
+                  radial-gradient(900px 600px at 100% 0%, rgba(59,130,246,.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+    }
+
+    /* Top Nav */
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 14px 0;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(11,15,20,.85), rgba(11,15,20,.55));
+      border-bottom: 1px solid rgba(31,42,55,.6);
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;background:var(--accent);
+      box-shadow: 0 0 18px rgba(94,234,212,.65);
+    }
+    .navlinks{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .navlinks a{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .navlinks a:hover{
+      border-color: rgba(94,234,212,.22);
+      color: var(--text);
+      background: rgba(15,22,32,.55);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 28px;
+      align-items: stretch;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns: 1fr}
+    }
+
+    .card{
+      background: rgba(15,22,32,.72);
+      border: 1px solid rgba(31,42,55,.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-left{
+      padding: 26px;
+    }
+    .title{
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+    .subtitle{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .chips{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(230,237,243,.9);
+      border: 1px solid rgba(31,42,55,.9);
+      background: rgba(11,15,20,.55);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .cta{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(31,42,55,.9);
+      background: rgba(11,15,20,.7);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .btn:hover{
+      border-color: rgba(94,234,212,.35);
+      transform: translateY(-1px);
+    }
+    .btn.primary{
+      background: rgba(94,234,212,.12);
+      border-color: rgba(94,234,212,.35);
+    }
+
+    /* Right hero (quick info) */
+    .hero-right{
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .box{
+      padding: 16px;
+      border: 1px solid rgba(31,42,55,.9);
+      border-radius: 14px;
+      background: rgba(11,15,20,.55);
+    }
+    .box h3{
+      margin:0;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .box p{
+      margin: 8px 0 0;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: rgba(230,237,243,.92);
+      word-break: break-word;
+    }
+
+    /* Sections */
+    section{
+      margin-top: 28px;
+    }
+    .section-title{
+      font-size: 13px;
+      font-family: var(--mono);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      margin-bottom: 10px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr}
+    }
+    .item{
+      padding: 16px;
+    }
+    .item h4{
+      margin: 0;
+      font-size: 16px;
+    }
+    .item .meta{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .item .desc{
+      margin-top: 10px;
+      color: rgba(230,237,243,.92);
+      font-size: 14px;
+    }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(230,237,243,.92);
+      font-size: 14px;
+    }
+    .list li{margin: 6px 0}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 860px){
+      .split{grid-template-columns: 1fr}
+    }
+
+    footer{
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31,42,55,.9);
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .smalllink{
+      font-family: var(--mono);
+      color: rgba(159,176,192,.95);
+    }
+    .smalllink:hover{color: var(--accent)}
+
+    .fade{
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all .6s ease;
+    }
+    .fade.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Mayank Kumar Chelak</span>
+      </div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#certs">Certs</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="card hero-left fade">
+        <h1 class="title">BSc IT Student • Tech Enthusiast</h1>
+        <p class="subtitle">
+          Motivated <b>BSc IT student</b> with a strong foundation in programming, databases, and web technologies.
+          Actively seeking an <b>entry-level position or internship</b> to apply skills, gain real-world experience,
+          and contribute to an organization’s growth.
+        </p>
+
+        <div class="chips">
+          <span class="chip">C</span>
+          <span class="chip">C++</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">DBMS (Basics)</span>
+          <span class="chip">Linux</span>
+          <span class="chip">Windows</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Contact</a>
+          <!-- Optional Links (Add your URLs) -->
+          <!-- <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a> -->
+          <!-- <a class="btn" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a> -->
+          <a class="btn" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </div>
+      </div>
+
+      <div class="card hero-right fade">
+        <div class="box">
+          <h3>Location</h3>
+          <p>Vidhan Sabha, Raipur</p>
+        </div>
+        <div class="box">
+          <h3>Email</h3>
+          <p>mayankchelakmkc@gmail.com</p>
+        </div>
+        <div class="box">
+          <h3>Phone</h3>
+          <p>+91 78284 91446</p>
+        </div>
+        <div class="box">
+          <h3>Languages</h3>
+          <p>English • Hindi</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade">
+      <div class="section-title">About</div>
+      <div class="card item">
+        <h4>Profile</h4>
+        <div class="desc">
+          I am currently pursuing <b>BSc IT</b> at Amity University, Raipur.
+          I have interest in building strong fundamentals in programming and technology,
+          with focus on improving problem-solving, communication, and teamwork skills.
+        </div>
+
+        <ul class="list">
+          <li>Strong fundamentals in programming and basic databases</li>
+          <li>Comfortable working on Windows and Linux systems</li>
+          <li>Interested in internships and practical industry exposure</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="fade">
+      <div class="section-title">Education</div>
+
+      <div class="grid">
+        <div class="card item">
+          <h4>Bachelor of Science (Information & Technology)</h4>
+          <div class="meta">Amity University, Raipur • 2024 — Present</div>
+          <div class="desc">
+            Current percentage: <b>68.0%</b>
+          </div>
+        </div>
+
+        <div class="card item">
+          <h4>Senior Secondary (CBSE)</h4>
+          <div class="meta">National Institute of Open Schooling • 2022 — 2023</div>
+          <div class="desc">
+            Percentage: <b>54.0%</b>
+          </div>
+        </div>
+
+        <div class="card item">
+          <h4>Secondary (CBSE)</h4>
+          <div class="meta">Gyan Ganga Educational Academy, Raipur • 2020 — 2021</div>
+          <div class="desc">
+            Percentage: <b>70.0%</b>
+          </div>
+        </div>
+
+        <div class="card item">
+          <h4>Career Objective</h4>
+          <div class="meta">Internship / Entry-level role</div>
+          <div class="desc">
+            Looking for opportunities to apply my technical skills, grow professionally,
+            and contribute to team success in a real-world environment.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="fade">
+      <div class="section-title">Skills</div>
+
+      <div class="split">
+        <div class="card item">
+          <h4>Technical Skills</h4>
+          <ul class="list">
+            <li><b>Programming:</b> C, C++</li>
+            <li><b>Web:</b> HTML, CSS</li>
+            <li><b>Database:</b> Basics of DBMS</li>
+            <li><b>OS:</b> Windows, Linux</li>
+            <li><b>Tools:</b> MS Office</li>
+          </ul>
+        </div>
+
+        <div class="card item">
+          <h4>Strengths</h4>
+          <ul class="list">
+            <li>Problem Solving</li>
+            <li>Leadership</li>
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Time Management</li>
+            <li>Adaptability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="fade">
+      <div class="section-title">Certifications</div>
+
+      <div class="grid">
+        <div class="card item">
+          <h4>C++ Programming – Beginners</h4>
+          <div class="meta">Infosys • 30 April 2025</div>
+          <div class="desc">
+            Strengthened fundamentals of programming and logic building using C++.
+          </div>
+        </div>
+
+        <div class="card item">
+          <h4>IPU Computer Science</h4>
+          <div class="meta">Infosys • 28 April 2025</div>
+          <div class="desc">
+            Covered core computer science topics and foundational IT knowledge.
+          </div>
+        </div>
+
+        <div class="card item">
+          <h4>Active Listening Skill for Students</h4>
+          <div class="meta">Infosys • 15 May 2025</div>
+          <div class="desc">
+            Improved communication effectiveness and collaboration in team environments.
+          </div>
+        </div>
+
+        <div class="card item">
+          <h4>Next Step</h4>
+          <div class="meta">2025 — 2026</div>
+          <div class="desc">
+            Currently working on strengthening programming projects and building a strong internship-ready profile.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTRA ACTIVITIES -->
+    <section id="activities" class="fade">
+      <div class="section-title">Extra Curricular</div>
+
+      <div class="card item">
+        <h4>Community Project (2025–2026)</h4>
+        <div class="desc">
+          Worked on a community project focusing on technology awareness and digital safety.
+        </div>
+        <ul class="list">
+          <li>Mentored school students by introducing emerging technologies</li>
+          <li>Guided students on future career opportunities in tech</li>
+          <li>Provided digital safety awareness to senior citizens (fraud & online theft prevention)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade">
+      <div class="section-title">Contact</div>
+
+      <div class="card item">
+        <h4>Let’s connect</h4>
+        <div class="desc">
+          I’m open to internship opportunities where I can learn, contribute, and grow with a team.
+        </div>
+
+        <ul class="list">
+          <li>Email: <a class="smalllink" href="mailto:mayankchelakmkc@gmail.com">mayankchelakmkc@gmail.com</a></li>
+          <li>Phone: <span class="smalllink">+91 78284 91446</span></li>
+          <li>Location: <span class="smalllink">Vidhan Sabha, Raipur</span></li>
+          <!-- <li>GitHub: <a class="smalllink" href="https://github.com/yourusername" target="_blank" rel="noreferrer">github.com/yourusername</a></li>
+          <li>LinkedIn: <a class="smalllink" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">linkedin.com/in/yourusername</a></li> -->
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>©️ <span id="year"></span> Mayank Kumar Chelak</span>
+      <span class="smalllink">Minimal • Single Page • GitHub Pages</span>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const els = document.querySelectorAll(".fade");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    els.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
